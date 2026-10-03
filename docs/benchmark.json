@@ -1,0 +1,27 @@
+{
+  "measuredAt": "2026-10-03T03:55:44.551Z",
+  "node": "v24.19.0",
+  "platform": "linux x64",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "scope": "Synchronous calculation + full 0..500 participant thresholds for each item, excluding DOM/render and I/O. 5 warmups then 50 samples.",
+  "results": [
+    {
+      "name": "demo: 2 items, 32 people",
+      "samples": 50,
+      "medianMs": 0.98,
+      "p95Ms": 1.41,
+      "maxMs": 4.51,
+      "targetMs": 200,
+      "targetMet": true
+    },
+    {
+      "name": "limits: 5 items, 6 candidates, 500 people × 20 units, 1000-pack maximum",
+      "samples": 50,
+      "medianMs": 14.16,
+      "p95Ms": 14.84,
+      "maxMs": 16.15,
+      "targetMs": 200,
+      "targetMet": true
+    }
+  ]
+}

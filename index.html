@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="参加人数と手持ち在庫から、備品パックの買い方を比較。最安と余り最少、人数変更の境目まで。">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>PackMix | ちょうどいい、備品の買い方</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./src/app.mjs"></script>
+</head>
+<body>
+<a class="skip" href="#planner">計画へ移動</a>
+<header class="topbar wrap"><a class="brand" href="./" aria-label="PackMix ホーム"><span class="brand-icon" aria-hidden="true">▦</span>Pack<span>Mix</span></a><span class="top-note">小さなイベントの、買い物設計</span><span class="privacy-chip"><i></i> ブラウザ内で計算</span></header>
+<main>
+  <section class="hero wrap" aria-labelledby="hero-title"><div><div class="eyebrow">LESS GUESSWORK. BETTER PACKS.</div><h1 id="hero-title">ちょうどいい、<br>備品の買い方。</h1><p>人数が変わっても、もう数え直さない。<br>パックの組み合わせで、予算と余りを見比べよう。</p><div class="hero-tags"><span>税込・円</span><span>最大5品目</span><span>登録不要</span></div></div><div class="hero-visual" aria-hidden="true"><div class="pack pack-a"><span>12</span>SMALL PACK</div><div class="pack pack-b"><span>20</span>MEDIUM PACK</div><div class="pack pack-c"><span>50</span>VALUE PACK</div><span class="visual-caption">ひとつのサイズに、しばられない。</span></div></section>
+  <section class="workspace wrap" id="planner" aria-label="備品計画">
+    <div class="toolbar"><div class="section-label"><span>01</span> 計画をつくる</div><div class="toolbar-actions"><button id="demo" class="text-button">デモに戻す</button><button id="import" class="secondary">JSONを読込</button><button id="export" class="secondary">計画を保存 ↓</button></div></div>
+    <p class="sample-note" id="sample-note">デモの備品・価格は架空です。実際に購入する候補へ置き換えてください。</p>
+    <div class="setup"><label class="field title-field">計画名<input id="title" maxlength="80" autocomplete="off"></label><div class="people-control"><label for="participants">参加人数 <span>0〜500人</span></label><div class="stepper"><button id="minus" aria-label="参加人数を1人減らす">−</button><input id="participants" type="number" min="0" max="500" step="1" inputmode="numeric"><span>人</span><button id="plus" aria-label="参加人数を1人増やす">＋</button></div></div><div class="formula"><span>必要な購入数</span><strong>人数 × 1人分 − 在庫</strong><small>在庫で足りるときは、購入なし</small></div></div>
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+    <div class="main-grid"><section class="editor" aria-label="備品とパック候補"><div id="items"></div><button id="add-item" class="add-item">＋ 備品を追加する <span>最大5品目</span></button></section><aside class="result-column" aria-label="購入プラン"><div class="sticky"><div class="section-label result-label"><span>02</span> 買い方を選ぶ</div><div id="results"></div></div></aside></div>
+    <section class="threshold-section" aria-labelledby="threshold-title"><div class="section-label"><span>03</span> 人数が変わったら</div><h2 id="threshold-title">買い方が切り替わる境目</h2><p class="muted">最安・余り最少のどちらかの組み合わせが変わる人数です。0〜500人の範囲を計算します。</p><div id="thresholds"></div></section>
+    <section class="notes"><h2>計算の前提</h2><div class="notes-grid"><p><strong>比較できるもの</strong>同じ品質・同じ用途の備品を、入数の異なるパックで比較します。在庫は使える数量、価格は税込の整数円で入力してください。</p><p><strong>含まれないもの</strong>送料、クーポン、まとめ買い割引、店舗をまたぐ条件、購入上限は含みません。パックは何個でも買える前提です。食品・医療用品向けではありません。</p><p><strong>データは手元に</strong>入力内容の送信・解析・自動保存はしません。ページを閉じると消えます。続きは「計画を保存」のJSONを読み込んで再開できます。</p></div><details><summary>同じ条件の候補は、どう選ぶ？</summary><p>最安は「合計金額 → 余り → パック数」、余り最少は「余り → 合計金額 → パック数」の順に小さい組み合わせを選びます。すべて同じ場合は上の候補を優先します。余りは新しく購入した分の余剰です。在庫の残りとは分けて表示します。</p></details></section>
+  </section>
+</main>
+<footer class="wrap"><span class="brand footer-brand">Pack<span>Mix</span></span><p>買いすぎを減らす、小さな計画ツール。<br><small>Prototype · ユーザー需要は未検証 · AI支援で制作</small></p><a href="./README.md">仕様と検証について ↗</a></footer>
+<dialog id="import-dialog" aria-labelledby="import-title"><div class="dialog-top"><h2 id="import-title">保存した計画を読み込む</h2><button id="close-import" class="icon-button" aria-label="閉じる">×</button></div><p>PackMix形式のJSON（64 KiB以下）を選んでください。読込に成功すると、現在の入力を置き換えます。</p><label class="field" for="import-file">計画のJSONファイル</label><input id="import-file" type="file" accept=".json,application/json"><p id="import-error" class="error" role="alert"></p><button id="cancel-import" class="secondary">キャンセル</button></dialog>
+<noscript><div class="wrap error">計算にはJavaScriptを有効にしてください。データはブラウザ内で処理します。</div></noscript>
+</body>
+</html>

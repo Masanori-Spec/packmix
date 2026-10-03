@@ -1,0 +1,70 @@
+✔ deleting an invalid pack validates the remaining draft and retains other edits (2.249589ms)
+✔ deleting an invalid item does not require repairing the discarded item (0.245041ms)
+✔ deleting while another row is invalid preserves that unfinished value (0.538764ms)
+✔ repeated stable-ID removals do not delete the wrong row after indices move (1.056626ms)
+✔ removal keeps at least one item and one pack and rejects missing targets (0.249387ms)
+✔ invalid-input need placeholder makes no numeric demand claim (0.29122ms)
+✔ public exports include validation, optimization, aggregation and thresholds (6.150874ms)
+✔ valid project is deeply cloned and round-trips through JSON (1.405524ms)
+✔ validation trims presentation strings while retaining their content (0.508999ms)
+✔ valid min/max numeric limits are accepted without rounding prices (1.285743ms)
+✔ maximum supported number of items and packs is accepted (0.425873ms)
+✔ stock covering demand and zero participants buy no packs (0.918087ms)
+✔ existing stock is subtracted from required units before optimization (0.608149ms)
+✔ price and surplus objectives can choose different purchases (0.218751ms)
+✔ minimum price uses lower surplus as its first tiebreak (0.251881ms)
+✔ minimum surplus uses lower price as its first tiebreak (0.214334ms)
+✔ fewest packs wins before preference for earlier pack types (0.313013ms)
+✔ equal solutions deterministically favor counts at earlier indices (0.369438ms)
+✔ six pack candidates preserve deterministic ties across repeated calls (1.650745ms)
+✔ mixed packs beat a greedy cheapest-unit-price purchase (0.218641ms)
+✔ single large pack and non-divisible requirements respect oversupply (0.634108ms)
+✔ maximum demand and large prices remain exact safe integers (3.522303ms)
+✔ 1,000 seeded randomized small cases match exhaustive count-vector enumeration (40.969013ms)
+✔ optimizer accepts frozen inputs and does not mutate them (0.48315ms)
+✔ project aggregation sums prices and preserves per-item oracle results (0.491983ms)
+✔ project totals remain exact for the maximum supported five-item bill (8.898506ms)
+✔ all public calculation entry points reject invalid data (0.554268ms)
+✔ threshold segments cover the range and match exhaustive vectors at every participant count (2.149708ms)
+✔ one-participant threshold range produces exactly one segment (0.160993ms)
+✔ stock-sufficient threshold range coalesces to a single zero-purchase segment (0.227454ms)
+✔ threshold defaults span 0..500 with exact inclusive boundary transitions (1.355088ms)
+✔ threshold ranges reject reversal, out-of-range endpoints and malformed integers (0.327545ms)
+✔ validation rejects non-object roots and unsupported schema versions (0.246863ms)
+✔ required structural fields cannot be omitted (0.281536ms)
+✔ numeric fields reject coercion, fractional, nonfinite and out-of-range values (0.795822ms)
+✔ string fields reject malformed types (0.520887ms)
+✔ strings enforce nonempty content, control-character exclusion and documented lengths (0.759828ms)
+✔ ids accept only the explicitly supported ASCII identifier alphabet (0.420145ms)
+✔ item and pack collections reject malformed members and excess sizes (0.412183ms)
+✔ duplicate item ids and duplicate pack ids are rejected (0.303799ms)
+✔ unknown keys are rejected at root, item and pack levels (0.365332ms)
+✔ JSON parsing rejects malformed, non-JSON and non-object documents (0.542359ms)
+✔ valid JSON with overflowing numeric literals is rejected (0.133112ms)
+✔ 64 KiB input byte limit is enforced even for otherwise valid JSON (0.301075ms)
+✔ JSON input size uses UTF-8 bytes rather than JavaScript string length (0.614989ms)
+✔ deeply nested hostile JSON is rejected without recursive stack exhaustion (0.529299ms)
+✔ validation rejects prototype-inherited and class-based structural objects (0.163267ms)
+✔ dangerous property names are rejected anywhere without prototype pollution (0.572505ms)
+✔ escaped dangerous JSON keys and nested malicious payloads are rejected (0.264209ms)
+✔ dangerous words used only as normal text are preserved (0.13958ms)
+ℹ tests 50
+ℹ suites 0
+ℹ pass 50
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 209.275905
+ℹ start of coverage report
+ℹ ---------------------------------------------------------------
+ℹ file           | line % | branch % | funcs % | uncovered lines
+ℹ ---------------------------------------------------------------
+ℹ src            |        |          |         | 
+ℹ  demo.mjs      | 100.00 |   100.00 |  100.00 | 
+ℹ  draft.mjs     | 100.00 |   100.00 |  100.00 | 
+ℹ  optimizer.mjs | 100.00 |    98.99 |  100.00 | 
+ℹ ---------------------------------------------------------------
+ℹ all files      | 100.00 |    99.15 |  100.00 | 
+ℹ ---------------------------------------------------------------
+ℹ end of coverage report
