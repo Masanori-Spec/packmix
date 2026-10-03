@@ -1,0 +1,37 @@
+{
+  "measuredAt": "2026-10-03T04:27:47.532Z",
+  "chromium": "154.0.8037.0",
+  "checks": [
+    "default demo shows both exact-price options",
+    "choosing less-surplus plan changes list",
+    "participants update and zero-demand inventory edge",
+    "invalid input hides stale results and disables export; recovery works",
+    "invalid rows can be removed without losing unrelated draft edits",
+    "add/remove item and pack limits",
+    "import cancel, reopen and Escape preserve current plan",
+    "cancelled in-flight file read cannot replace a reopened dialog or current draft",
+    "malicious JSON rejected; old plan retained",
+    "HTML-shaped labels remain inert text after import",
+    "JSON export round trips exact current data",
+    "shopping-list file contains quantities and exclusions",
+    "threshold details lazy-render and have inclusive coverage",
+    "ordinary browser interactions remain under 200ms p95",
+    "mobile has no horizontal overflow and preserves controls",
+    "long valid labels and maximum totals fit narrow screens",
+    "no page errors and no external requests"
+  ],
+  "timing": {
+    "samples": 30,
+    "medianMs": 2.7000000000116415,
+    "p95Ms": 3.1000000000058208,
+    "maxMs": 3.2999999999883585,
+    "scope": "Event dispatch through synchronous calculation, DOM updates and forced layout; excludes paint"
+  },
+  "errors": [],
+  "network": "Only localhost static resources; no external requests observed",
+  "viewports": [
+    "1440×1100",
+    "390×844",
+    "320×740"
+  ]
+}

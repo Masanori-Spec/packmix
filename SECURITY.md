@@ -17,6 +17,6 @@ The CSP disallows external connections, inline scripts, object content, and form
 
 ## Limits
 
-This is not a security audit. Browser security and rendering tests are supplied but were not runnable in the initial restricted production environment. The unit suite checks validation and prototype-pollution payloads; it does not substitute for browser testing.
+This is not a security audit. The initial restricted authoring environment could not run browser tests; the ordinary GitHub Actions workflow subsequently passed 17 headless Chromium checks, including malicious JSON rejection, inert HTML-shaped labels, cancelled in-flight imports, and observation of no external application requests. See [verification status](docs/verification-status.md) for the exact tested commit, browser version and limits. These synthetic tests do not establish security for every payload, browser or hosting configuration.
 
 Do not place secrets or personal data in demo files, bug reports, screenshots, or public CI artifacts. The shipped fixtures are synthetic. Do not submit sensitive vulnerability details through a public issue. No reporting address is specified until the repository owner chooses one.
